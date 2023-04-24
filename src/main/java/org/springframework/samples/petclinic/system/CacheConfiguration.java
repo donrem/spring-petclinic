@@ -21,6 +21,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.cache.CacheManager;
 import javax.cache.configuration.MutableConfiguration;
 
 /**
@@ -34,7 +35,9 @@ class CacheConfiguration {
 
 	@Bean
 	public JCacheManagerCustomizer petclinicCacheConfigurationCustomizer() {
-		return cm -> cm.createCache("vets", cacheConfiguration());
+		return (CacheManager cm) -> {
+			cm.createCache("vets", cacheConfiguration());
+		};
 	}
 
 	/**
