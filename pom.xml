@@ -239,6 +239,23 @@
         </configuration>
       </plugin>
 
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+          <from>
+            <image>openjdk:17.0</image>
+          </from>
+          <container>
+            <ports>
+              <port>8080</port>
+              <port>15370</port>
+            </ports>
+          </container>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
